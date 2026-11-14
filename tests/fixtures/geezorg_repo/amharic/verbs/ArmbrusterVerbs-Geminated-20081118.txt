@@ -1,0 +1,3 @@
+# Simple Perfect	Compound Perfect
+ሆነ	ሁኗል, ሆኗል	ይሆን	ይሆናል	ይሁን	ሁን	ሁኖ,ሆኖ	መሆን	ኋኝ	be	i
+ሰበ፟ረ	ሰብሯል	ይስበር	ይሰብራል	ይሰበር	ስበር	ሰብሮ	መስበር	ሰባሪ	break	t

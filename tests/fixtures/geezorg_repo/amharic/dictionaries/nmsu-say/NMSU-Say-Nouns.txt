@@ -1,0 +1,3 @@
+ቤት	n	house, home, residence
+ሁለት	adj	two
+የቤት፡እመቤት	n	housewife

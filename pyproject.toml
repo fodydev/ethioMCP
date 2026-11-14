@@ -1,0 +1,38 @@
+[project]
+name = "ethiomcp"
+version = "0.1.0"
+description = "A connector-based MCP server that extends LLMs with Ethiopian linguistic resources."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "FodyDev" }]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=2.3,<3",
+    "platformdirs>=4",
+    "openpyxl>=3.1",
+]
+keywords = ["mcp", "amharic", "tigrinya", "geez", "ethiopic", "linguistics", "nlp"]
+
+[project.scripts]
+ethiomcp = "ethiomcp.cli:main"
+
+# Third-party packages can add connectors through this entry-point group:
+# [project.entry-points."ethiomcp.connectors"]
+# my_connector = "my_package.connector:MyConnector"
+
+[dependency-groups]
+dev = ["pytest>=8.3", "ruff>=0.12"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ethiomcp"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
