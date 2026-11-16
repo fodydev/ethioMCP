@@ -50,3 +50,23 @@ def test_geezorg_lookup_through_server(geezorg):
     out = _payload(_call(mcp, "geezorg_lookup", {"query": "abaxial"}))
     assert out["results"][0]["headword"] == "ቅጠል ጀርባ"
     assert out["license"] == "CC BY-SA 4.0"
+
+
+def test_afrim_tools_through_server(afrim):
+    mcp, _ = build_server([afrim])
+    out = _payload(_call(mcp, "afrim_transliterate", {"text": "selam bet"}))
+    assert out["output"] == "ሰላም በት"
+    assert out["words"][0]["in_wordlist"] == ["dictionary"]
+    out = _payload(_call(mcp, "afrim_keystrokes", {"text": "ኢትዮጵያ"}))
+    assert out["keys"] == "aityoPya"
+    out = _payload(_call(mcp, "afrim_ethiopian_date", {"date": "16/11/2026"}))
+    assert out["ethiopian"]["month_name"] == "ሕዳር" and out["ethiopian"]["year_geez"] == "፳፻፲፱"
+
+
+def test_afrim_numerals_need_no_setup(data_dir):
+    from ethiomcp.connectors.afrim_data import AfrimDataConnector
+
+    mcp, _ = build_server([AfrimDataConnector()])
+    assert _payload(_call(mcp, "afrim_geez_numeral", {"number": 1966}))["geez"] == "፲፱፻፷፮"
+    with pytest.raises(Exception, match="ethiomcp setup afrim"):
+        _call(mcp, "afrim_lookup", {"query": "ሰላም"})

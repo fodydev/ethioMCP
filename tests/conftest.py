@@ -22,3 +22,12 @@ def geezorg(data_dir):
     shutil.copytree(FIXTURES / "geezorg_repo", repo)
     (repo / ".git").mkdir()  # git cannot commit a nested .git, so create the marker here
     return GeezorgDataConnector()
+
+
+@pytest.fixture
+def afrim(data_dir):
+    """An AfrimDataConnector whose repo is the fixture mini afrim-data checkout."""
+    from ethiomcp.connectors.afrim_data import AfrimDataConnector
+
+    shutil.copytree(FIXTURES / "afrim_repo", data_dir / "afrim" / "repo")
+    return AfrimDataConnector()

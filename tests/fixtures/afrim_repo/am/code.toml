@@ -1,0 +1,24 @@
+[info]
+description = "Subset of the Amharic keyboard map"
+
+[core]
+auto_capitalize = false
+
+[data]
+"a" = "እ"
+"ae" = { value = "አ", alias = ["aE"] }
+"ai" = { value = "ኢ", alias = ["aI"] }
+"b" = { value = "ብ", alias = ["B"] }
+"ba" = { value = "ባ", alias = ["bA", "Ba", "BA"] }
+"be" = { value = "በ", alias = ["bE", "Be", "BE"] }
+"bie" = { value = "ቤ", alias = ["biE"] }
+"l" = "ል"
+"la" = { value = "ላ", alias = ["lA"] }
+"m" = "ም"
+"s" = "ስ"
+"se" = { value = "ሰ", alias = ["sE"] }
+"t" = "ት"
+"P" = "ጵ"
+"ya" = { value = "ያ", alias = ["yA"] }
+"yo" = { value = "ዮ", alias = ["yO"] }
+"yua" = { value = "ዟ " }

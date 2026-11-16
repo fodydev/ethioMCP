@@ -1,0 +1,6 @@
+[info]
+name = "Ge'ez IM"
+
+[data]
+geez = { path = "./code.toml" }
+punctuation = { path = "./punctuation.toml" }

@@ -41,6 +41,20 @@ License: CC BY-SA 4.0.
 | `geezorg_corpus_search` | Keyword-in-context search of the POS-tagged WIC Amharic news corpus |
 | `geezorg_list_datasets`, `geezorg_browse`, `geezorg_read_file` | Explore the rest of the archive |
 
+### `afrim`: [fodydev/afrim-data](https://github.com/fodydev/afrim-data)
+
+The Ethiopic input methods of the [afrim](https://github.com/pythonbrad/afrim)
+IME. License: none specified upstream.
+
+| Tool | What it does |
+|---|---|
+| `afrim_transliterate` | Romanised keyboard input to Ge'ez script (`aityoPya` → ኢትዮጵያ), with layouts `am`, `gez`, `ethiopic`, `geezime`; words found in the Amharic wordlist are flagged |
+| `afrim_keystrokes` | Ge'ez script to the keystrokes that type it |
+| `afrim_lookup` | Spelling check in a ~340k-form Amharic wordlist and an Ethiopian names list (no glosses) |
+| `afrim_geez_numeral` | Integers to Ge'ez numerals (1966 → ፲፱፻፷፮) |
+| `afrim_ethiopian_date` | Gregorian ↔ Ethiopian calendar, with Amharic month names |
+| `afrim_list_schemes` | The layouts and their word lists |
+
 `ethiomcp_connectors` lists the connectors and whether each one is ready.
 
 ## Install
@@ -50,6 +64,7 @@ git clone <this repo> && cd ethioMCP
 uv sync
 uv run ethiomcp setup                      # all connectors (HornMorpho: am,ti,om)
 uv run ethiomcp setup hornmorpho -o langs=am
+uv run ethiomcp setup afrim -o path=../afrim-data   # use a local clone instead of GitHub
 uv run ethiomcp doctor
 ```
 
