@@ -1,0 +1,5 @@
+[info]
+description = "Ethiopic name"
+
+[translation]
+"aebebe" = { value = "አበበ", alias = ["aEbebe"] }

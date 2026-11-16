@@ -10,6 +10,7 @@ dependencies = [
     "mcp>=2.3,<3",
     "platformdirs>=4",
     "openpyxl>=3.1",
+    "tomli>=2; python_version < '3.11'",
 ]
 keywords = ["mcp", "amharic", "tigrinya", "geez", "ethiopic", "linguistics", "nlp"]
 

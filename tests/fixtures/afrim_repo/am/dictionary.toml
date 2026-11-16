@@ -1,0 +1,6 @@
+[info]
+description = "Wordlist for Amharic"
+
+[translation]
+a = { path = "./dictionary/a.toml" }
+b = { path = "./dictionary/b.toml" }

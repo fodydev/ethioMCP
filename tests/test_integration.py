@@ -43,3 +43,27 @@ def test_geezorg_real_lookups(geezorg):
     ix = geezorg.index()
     assert ix.search("abaxial")[0]["headword"] == "ቅጠል ጀርባ"
     assert ix.search("ሆነ", kinds=("verbs",))[0]["jussive"] == "ይሁን"
+
+
+@pytest.fixture(scope="module")
+def afrim():
+    from ethiomcp.connectors.afrim_data import AfrimDataConnector
+
+    c = AfrimDataConnector()
+    if not c.is_ready():
+        pytest.skip("afrim not set up")
+    return c
+
+
+def test_afrim_amharic_wordlist(afrim):
+    am = afrim.scheme("am")
+    assert am.word("selam")[0][1] == "ሰላም"
+    assert am.search("ኢትዮጵያ", limit=1)[0]["key"] == "aityoPya"
+    assert "".join(o for _, o in am.to_ethiopic("aityoPya")) == "ኢትዮጵያ"
+
+
+def test_afrim_all_schemes_load(afrim):
+    from ethiomcp.connectors.afrim_data.loaders import SCHEMES
+
+    for scheme_id in SCHEMES:
+        assert len(afrim.scheme(scheme_id).keymap) > 300
